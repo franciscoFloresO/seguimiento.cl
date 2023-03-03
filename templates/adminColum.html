@@ -1,0 +1,21 @@
+{% url 'login' as lolgin %}
+
+{%if user.is_authenticated %}
+<nav class="nav flex-column nav-dark bg-dark" style="height:100%">
+    <a class="nav-link active text-white" aria-current="page" href="{% url 'areaGestion' %}">Área de Gestión</a>
+    <a class="nav-link text-white" href="{% url 'cliente' %}">Cliente</a>
+    <a class="nav-link text-white" href="{% url 'ciudad' %}">Ciudad</a>
+    <a class="nav-link text-white" href="{% url 'estado' %}">Estado</a>
+    <a class="nav-link text-white" href="{% url 'ingeniero' %}">Ingeniero</a>
+    <a class="nav-link text-white" href="{% url 'rol' %}">Rol</a>
+    <a class="nav-link text-white" href="{% url 'tecnico' %}">Técnico</a>
+    <a class="nav-link text-white" href="{% url 'tipoTarea' %}">Tipo Tarea</a>
+    <a class="nav-link text-white" href="{% url 'tipoUsuario' %}">Tipo Usuario</a>
+    <a class="nav-link text-white" href="{% url 'tipoEstado' %}">Tipo Estado Usuario</a>
+    <a class="nav-link text-white" href="{% url 'usuario' %}">Usuario</a>
+    <a class="nav-link text-white" href="{% url 'zonaUsuario' %}">Zona Usuario</a>
+    <a class="nav-link text-white" href="{% url 'zona' %}">Zona</a>                                    
+    <!--<a class="nav-link disabled">Disabled</a>-->
+{% else %}
+{% endif %}
+</nav>

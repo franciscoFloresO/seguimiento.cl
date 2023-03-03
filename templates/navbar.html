@@ -1,0 +1,24 @@
+{% url 'login' as lolgin %}
+
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand">Seguimientos</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+{%if user.is_authenticated %}
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link active" aria-current="page" href="{% url 'administrador' %}"><span class="fas fa-house"></span> Home</a>
+      <a class="nav-link" href="#"><span class="fas fa-inbox"></span> Bandeja</a>
+      <a class="nav-link" href="#"><span class="fas fa-user"></span> Perfil</a>
+      <a class="nav-link text-warning" href="{% url 'salir' %}"><span class="fas fa-right-from-bracket"></span> Cerrar Sesión</a>          
+      <!--<a class="nav-link disabled">Disabled</a>-->
+    </div>
+  </div>
+</div>
+{% else %}
+{% endif %}
+  </nav>

@@ -1,0 +1,31 @@
+{% extends "base.html" %}    
+{% load static %}
+{% block content %}
+<div class="container-text-center">
+    <div class="row">
+        <div>
+            <h2>Nuevo Usuario</h2>
+            <hr>
+        </div>
+        <div class="card">
+        <div class="card-body">    
+            <form method="post">
+                {% csrf_token %}
+                {% for m in form %}
+                <div class="form-group">
+                    {{m.label_tag}}
+                    {{m}}
+
+                    {% if m.errors %}
+                    {{m.errors}}
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <hr>
+                <button type="submit" class="btn btn-primary">Registro</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

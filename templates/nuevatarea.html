@@ -1,0 +1,193 @@
+{% extends "base.html" %}    
+{% load static %}
+{% block content %}
+<div class="container-text-center">
+    <div class="row">
+        <div>
+            <h2>Nueva Tarea</h2>
+            <hr>
+        </div>
+        <div class="card">
+        <div class="card-body">    
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    Datos del Cliente
+                    </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table table-striped">
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">Nombre</th>
+                                    </tr>    
+                                    <tr>
+                                        <th scope="row">
+                                            <select class="form-select">
+                                                <option value="1">Claro</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Dirección</th>
+                                    </tr>    
+                                    <tr>
+                                        <th scope="row">
+                                            <select class="form-select">
+                                                <option value="1">Av....</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Ciudad</th>
+                                    </tr>    
+                                    <tr>
+                                        <th scope="row">
+                                            <select class="form-select">
+                                                <option value="1">Santiago</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Comuna</th>
+                                    </tr>    
+                                    <tr>
+                                        <th scope="row">
+                                            <select class="form-select">
+                                                <option value="1">Santiago Centro</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Zona</th>
+                                    </tr>    
+                                    <tr>
+                                        <th scope="row">
+                                            <select class="form-select">
+                                                <option value="1">Zona Norte</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Tipo de Tarea</th>
+                                    </tr>    
+                                    <tr>
+                                        <th scope="row">
+                                            <select class="form-select">
+                                                <option value="1">Aplicación</option>
+                                            </select>
+                                        </th>
+                                    </tr>                            
+                                    </tbody>                            
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    Datos de SOLOT
+                    </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table table-striped">
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">Estado</th>
+                                    </tr>    
+                                    <tr>
+                                        <th scope="row">
+                                            <select class="form-select">
+                                                <option value="1">Ingresado</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Solot</th>
+                                    </tr>    
+                                    <tr>
+                                        <th scope="row">
+                                            <select class="form-select">
+                                                <option value="1">12345678</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">ID</th>
+                                    </tr>    
+                                    <tr>
+                                        <th scope="row">
+                                            <select class="form-select">
+                                                <option value="1">9876543</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Número de Servicio</th>
+                                    </tr>    
+                                    <tr>
+                                        <th scope="row">
+                                            <select class="form-select">
+                                                <option value="1">12334</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Fecha de Atención</th>
+                                    </tr>    
+                                    <tr>
+                                        <th scope="row">
+                                            <select class="form-select">
+                                                <option value="1">Aplicación</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Hora de Atención</th>
+                                    </tr>    
+                                    <tr>
+                                        <th scope="row">
+                                            <select class="form-select">
+                                                <option value="1">Santiago</option>
+                                            </select>
+                                        </th>
+                                    </tr>                            
+                                    </tbody>                            
+                                </table>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                
+                
+                <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    Guardar
+                    </button>
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <div class="card">
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-success">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

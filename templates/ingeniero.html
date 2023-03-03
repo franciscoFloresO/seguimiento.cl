@@ -1,0 +1,72 @@
+{% extends "base.html" %}    
+{% load static %}
+{% block content %}
+    <div class="container-text-center">
+        <div class="row">
+            <div>
+                <h2>Ingeniero</h2>
+            </div>
+            <div>
+                <hr>
+                <a href="{% url 'nuevoIngeniero' %}">
+                    <button type="button" class="btn btn-primary">Agregar Nuevo Ingeniero</button>   
+                </a>
+            </div>
+            <div>
+                <hr>
+                <a>Buscar : </a>
+                <input type="text">
+            </div>
+            <div>
+                <hr>
+                <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Administración</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Celular</th>
+                            <th scope="col">Estado</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">
+                                <select class="form-select">
+                                    <option value="1">Modificar</option>
+                                    <option value="2">Eliminar</option>
+                                </select>
+                            </th>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+            <div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end">
+                        <li class="page-item disabled">
+                        <a class="page-link">Anterior</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                        <a class="page-link" href="#">Siguiente</a>
+                        </li>
+                    </ul>
+                    </nav>
+            </div>    
+        </div>           
+    </div>
+</div>    
+{% endblock %}
