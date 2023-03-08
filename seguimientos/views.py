@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth import logout  
-from .forms import Registro
+from .forms import NuevoUsuario
 from django.contrib.auth.models import User
 
 def index(request):
@@ -24,10 +24,10 @@ def login(request):
     if request.user.is_authenticated:
         return redirect('administrador')
     if request.method == 'POST':
-        username = request.POST.get('username')
+        nombreUsuario = request.POST.get('nombreUsuario')
         password = request.POST.get('password')
 
-        usuarios = authenticate(username=username, password=password)
+        usuarios = authenticate(nombreUsuario=nombreUsuario, password=password)
         if usuarios:
             lg(request,usuarios)
             messages.success(request, f'Bienvenido {usuarios.username}')
@@ -43,21 +43,22 @@ def salir(request):
     messages.success(request, 'Sesión cerrada')
     return redirect(login)
 
-def registro(request):
-    form = Registro(request.POST or None)
-    if request.method=='POST' and form.is_valid():
+# def registro(request):
+#     form = Registro(request.POST or None)
+#     if request.method=='POST' and form.is_valid():
         
 
-        usuario = form.save()
-        if usuario:
-            lg(request, usuario)
-            messages.success(request, 'Bienvenido')
-            return redirect('administrador')
+#         usuario = form.save()
+#         if usuario:
+#             lg(request, usuario)
+#             messages.success(request, 'Bienvenido')
+#             return redirect('administrador')
 
-    return render(request, 'users/nuevoUsuario.html', {
-        'form':form
+#    return render(request, 'users/registro.html')
+# {
+#         'form':form
 
-        })
+#         })
 
 def administador(request):
     return render(request,'administrador.html')
@@ -132,20 +133,21 @@ def usuario(request):
     return render(request,'usuario.html')
 
 def nuevoUsuario(request):
-    form = Registro(request.POST or None)
+    form = NuevoUsuario(request.POST or None)
     if request.method=='POST' and form.is_valid():
+   
         
-
-        usuario = form.save()
+        usuario = form.save()                       
         if usuario:
-            lg(request, usuario)
-            messages.success(request, 'Bienvenido')
-            return redirect('administrador')
-
-    return render(request, 'nuevoUsuario.html', {
+            lg(request,usuario)
+            messages.success(request,'Bienvenido')
+            return redirect('usuario.html')
+        
+    return render(request,'nuevoUsuario.html',{
         'form':form
-
-        }) 
+    })
+    
+    
 
 def zonaUsuario(request):
     return render(request,'zonaUsuario.html')
