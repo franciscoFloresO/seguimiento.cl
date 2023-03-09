@@ -6,7 +6,11 @@ opcionesEstados = [
     [1, "Deshabilitado"]
 ]
 
-class NuevoUsuario(forms.Form):
+class Registro(forms.Form):
+    username = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        'class':'form-control',
+        'placeholder':'Nombre de Usuario'
+        }))
     nombre = forms.CharField(required=True, min_length=5, max_length=40, widget=forms.TextInput(attrs={
         'class':'form-control',
         'placeholder':'Nombre'
@@ -19,10 +23,7 @@ class NuevoUsuario(forms.Form):
         'class':'form-control',
         'placeholder':'Apellido Materno Usuario'
         }))
-    nombreUsuario = forms.CharField(required=True, widget=forms.TextInput(attrs={
-        'class':'form-control',
-        'placeholder':'Nombre de Usuario'
-        }))
+
     password = forms.CharField(required=True, widget=forms.PasswordInput(attrs={
         'class':'form-control',
         'class':'Contraseña'
@@ -31,7 +32,7 @@ class NuevoUsuario(forms.Form):
         'class':'form-control',
         'class':'Contraseña'        
     }))
-    correo = forms.CharField(required=True, widget=forms.EmailInput(attrs={
+    email = forms.CharField(required=True, widget=forms.EmailInput(attrs={
         'class':'form-control',
         'placeholder':'Correo'
     })) 
@@ -49,32 +50,35 @@ class NuevoUsuario(forms.Form):
         }))
      
     
-    def clean_nombre(self):
-        nombreUsuario = self.cleaned_data.get('nombreUsuario')
-        if User.objects.filter(nombreUsuario=nombreUsuario).exists():
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        if User.objects.filter(username=username).exists():
             raise forms.ValidationError('Nombre de usuario ya está en uso')
-        return nombreUsuario
+        return username
 
     def clean_email(self):
-        correo = self.cleaned_data.get('correo')
-        if User.objects.filter(correo=correo).exists():
+        correo = self.cleaned_data.get('email')
+        if User.objects.filter(email=correo).exists():
             raise forms.ValidationError('Correo ya está en uso')
         return correo
 
     def clean(self):
         cleaned_data = super().clean()
+        
         if cleaned_data.get('password2') != cleaned_data.get('password'):
-            self.add_error('password2', 'Las contraseñas no son iguales')
+            self.add_error('password2','La contraseña no coinciden')
+
 
     def save(self):
         return User.objects.create_user(
-            self.cleaned_data.get('nombre'),
-            self.cleaned_data.get('apellidoPaterno'),
-            self.cleaned_data.get('apellidoMaterno'),            
-            self.cleaned_data.get('nombreUsuario'),
-            self.cleaned_data.get('correo'),
+            self.cleaned_data.get('username'),            
+            # self.cleaned_data.get('nombre'),
+            # self.cleaned_data.get('apellidoPaterno'),
+            # self.cleaned_data.get('apellidoMaterno'),            
+            # self.cleaned_data.get('nombreUsuario'),
+            self.cleaned_data.get('email'),
             self.cleaned_data.get('password'),
-            self.cleaned_data.get('celular'),
-            self.cleaned_data.get('tipoUsuario'),
-            self.cleaned_data.get('estadoUsuario')
+            # self.cleaned_data.get('celular'),
+            # self.cleaned_data.get('tipoUsuario'),
+            # self.cleaned_data.get('estadoUsuario')
         )

@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth import logout  
-from .forms import NuevoUsuario
+from .forms import Registro
 from django.contrib.auth.models import User
 
 def index(request):
@@ -24,10 +24,10 @@ def login(request):
     if request.user.is_authenticated:
         return redirect('administrador')
     if request.method == 'POST':
-        nombreUsuario = request.POST.get('nombreUsuario')
+        username = request.POST.get('username')
         password = request.POST.get('password')
 
-        usuarios = authenticate(nombreUsuario=nombreUsuario, password=password)
+        usuarios = authenticate(username=username, password=password)
         if usuarios:
             lg(request,usuarios)
             messages.success(request, f'Bienvenido {usuarios.username}')
@@ -133,15 +133,14 @@ def usuario(request):
     return render(request,'usuario.html')
 
 def nuevoUsuario(request):
-    form = NuevoUsuario(request.POST or None)
+    form = Registro(request.POST or None)
     if request.method=='POST' and form.is_valid():
-   
-        
+                
         usuario = form.save()                       
         if usuario:
             lg(request,usuario)
             messages.success(request,'Bienvenido')
-            return redirect('usuario.html')
+            return redirect('usuario')
         
     return render(request,'nuevoUsuario.html',{
         'form':form
